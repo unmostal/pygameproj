@@ -1,37 +1,33 @@
 import pygame
 
-
-def draw_play_button(screen):
-    font = pygame.font.Font('ka1.ttf', 50)
-    text = font.render("Play!", True, (100, 255, 100))
-    text_x = 400
-    text_y = 250
-    screen.blit(text, (text_x, text_y))
-
-
 def draw_greetings(screen):
-    screen.fill((0, 0, 0))
-    font = pygame.font.Font('ka1.ttf', 50)
+    font = pygame.font.Font('ka1.ttf', 40)
     text = font.render("Welcome, player!", True, (100, 255, 100))
     text_x = 200
     text_y = 150
     screen.blit(text, (text_x, text_y))
 
+def draw_play_button(screen):
+    font = pygame.font.Font('ka1.ttf', 40)
+    text = font.render("Play!", True, (100, 255, 100))
+    text_x = 370
+    text_y = 250
+    screen.blit(text, (text_x, text_y))
+
 
 def make_button_quit_d(screen):
-    color_dark = (100, 100, 100)
-    pygame.draw.rect(screen, color_dark, [width - 545, height - 200, 195, 40])
+    font = pygame.font.Font('ka1.ttf', 40)
+    text = font.render("Quit", True, (100, 255, 100))
+    text_x = 390
+    text_y = 350
+    screen.blit(text, (text_x, text_y))
 
 
-def make_button_quit_l(screen):
-    color_light = (170, 170, 170)
-    pygame.draw.rect(screen, color_light, [width - 545, height - 200, 195, 40])
 
 
 if __name__ == '__main__':
     pygame.init()
     smallfont = pygame.font.SysFont('ka1.ttf', 35)
-    text_quit = smallfont.render('Quit', True, (255, 255, 255))
     size = width, height = 900, 700
     screen = pygame.display.set_mode(size)
     draw_greetings(screen)
@@ -46,10 +42,9 @@ if __name__ == '__main__':
                 if width - 480 <= mouse[0] <= width - 480 + 140 and height - 195 <= mouse[1] <= height - 195 + 40:
                     pygame.quit()
         mouse = pygame.mouse.get_pos()
-        if width - 480 <= mouse[0] <= width - 480 + 140 and height - 195 <= mouse[1] <= height - 195 + 40:
-            make_button_quit_l(screen)
-        else:
-            make_button_quit_d(screen)
-        screen.blit(text_quit, (width - 480, height - 195))
+        # if width - 480 <= mouse[0] <= width - 480 + 140 and height - 195 <= mouse[1] <= height - 195 + 40:
+        #     make_button_quit_l(screen)
+        # else:
+        make_button_quit_d(screen)
         pygame.display.update()
     pygame.quit()
